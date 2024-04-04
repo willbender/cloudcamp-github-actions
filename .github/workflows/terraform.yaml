@@ -1,0 +1,21 @@
+name: terraform workflow
+on: 
+  push:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4.1.1
+      
+      - name: check-tf-version
+        run: terraform -v
+
+      - name: terraform-init
+        run: terraform init
+
+      - name: validate
+      - run: |
+          terraform fmt
+          terraform validate
