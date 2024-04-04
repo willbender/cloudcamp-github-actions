@@ -13,4 +13,16 @@ jobs:
         run: echo "Hello World!"
         #shell: bash
 
-      - run: ls -la
+      - run: |
+          java -version
+          ls -la
+
+  container-job:
+    runs-on: ubuntu-latest
+    container:
+      image: amazoncorretto:8-alpine3.16
+    steps:
+      - name: check-java-version
+        run: | 
+          java -version
+          ls -la
