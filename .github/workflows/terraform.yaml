@@ -16,6 +16,6 @@ jobs:
         run: terraform init
 
       - name: validate
-      - run: |
+        run: |
           terraform fmt
           terraform validate
